@@ -27,13 +27,6 @@ var app = {
     // 'load', 'deviceready', 'offline', and 'online'.
     bindEvents: function() {
         document.addEventListener('deviceready', this.onDeviceReady, false);
-        window.addEventListener("batterystatus", onBatteryStatus, false);
-    },
-    function onBatteryStatus(status) {
-        var watchID = navigator.geolocation.watchPosition(onSuccess, onError, { enableHighAccuracy: true });
-
-        var parentElement = document.getElementById("content");
-        parentElement.innerHTML+="Level: " + status.level + " isPlugged: " + status.isPlugged;
     },
     // deviceready Event Handler
     //
@@ -53,18 +46,4 @@ var app = {
 
         console.log('Received Event: ' + id);
     }
-    onSuccess: function(position) {
-        var element = document.getElementById('geolocation');
-        element.innerHTML = 'Latitude: '  + position.coords.latitude      + '<br />' +
-                            'Longitude: ' + position.coords.longitude     + '<br />' +
-                            '<hr />'      + element.innerHTML;
-    }
-
-    // onError Callback receives a PositionError object
-    //
-    onError: function(error) {
-        alert('code: '    + error.code    + '\n' +
-              'message: ' + error.message + '\n');
-    }
-
 };
