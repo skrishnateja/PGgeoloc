@@ -53,7 +53,7 @@ var app = {
 
         console.log('Received Event: ' + id);
     }
-    function onSuccess(position) {
+    onSuccess: function(position) {
         var element = document.getElementById('geolocation');
         element.innerHTML = 'Latitude: '  + position.coords.latitude      + '<br />' +
                             'Longitude: ' + position.coords.longitude     + '<br />' +
@@ -62,7 +62,7 @@ var app = {
 
     // onError Callback receives a PositionError object
     //
-    function onError(error) {
+    onError: function(error) {
         alert('code: '    + error.code    + '\n' +
               'message: ' + error.message + '\n');
     }
